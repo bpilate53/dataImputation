@@ -124,7 +124,7 @@ elif (arg.column ==15 and arg.percentage ==20):
 elif (arg.column ==15 and arg.percentage ==30):
     null_data = d.read_csv('data_selected_indexes_in_15_columns_0.3_rows_1_0.6520590103429712')
 
-percentage_of_rows_to_select = 0.
+percentage_of_rows_to_select = 0.5
 total_rows_to_select = int(np.floor(full_data.count()[0]*percentage_of_rows_to_select))
 full_data = full_data[:total_rows_to_select]
 
