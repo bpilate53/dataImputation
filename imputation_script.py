@@ -103,7 +103,7 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument("algorithm", choices=['knn', 'mice', 'missForest', 'iterativeImputer', 'ada', 'extratrees'])
 parser.add_argument("column", choices=[5, 10, 15], type=int)
-parser.add_argument("percentage", choices=[20, 30], type=int)
+parser.add_argument("percentage", choices=[10, 20], type=int)
 # Read arguments from command line
 print (parser.parse_args())
 arg = parser.parse_args()
@@ -111,20 +111,12 @@ arg = parser.parse_args()
 full_data = pd.read_csv('Real-Time_Road_Conditions.csv')
 null_data = pd.DataFrame()
 
-if (arg.column ==5 and arg.percentage ==20):
-    null_data = pd.read_csv('data_selected_indexes_in_5_columns_0.2_rows_1_0.025805798448418793')
-elif (arg.column ==5 and arg.percentage ==30):
-    null_data = pd.read_csv('data_selected_indexes_in_5_columns_0.3_rows_1_0.5573260499084972')
-elif (arg.column ==10 and arg.percentage ==20):
-    null_data = pd.read_csv('data_selected_indexes_in_10_columns_0.2_rows_1_0.5269002655546119')
-elif (arg.column ==10 and arg.percentage ==30):
-    null_data = pd.read_csv('data_selected_indexes_in_10_columns_0.3_rows_1_0.46785977082279817')
-elif (arg.column ==15 and arg.percentage ==20):
-    null_data = pd.read_csv('data_selected_indexes_in_15_columns_0.2_rows_1_0.5811173399775509')
-elif (arg.column ==15 and arg.percentage ==30):
-    null_data = d.read_csv('data_selected_indexes_in_15_columns_0.3_rows_1_0.6520590103429712')
+if (arg.column ==5 and arg.percentage ==10):
+    null_data = pd.read_csv('data_selected_indexes_in_5_columns_0.2_rows_0.1_0.6959182615372935')
+elif (arg.column ==5 and arg.percentage ==20):
+    null_data = pd.read_csv('data_selected_indexes_in_5_columns_0.2_rows_0.2_0.26174381293823246')
 
-percentage_of_rows_to_select = 0.5
+percentage_of_rows_to_select = 0.1
 total_rows_to_select = int(np.floor(full_data.count()[0]*percentage_of_rows_to_select))
 full_data = full_data[:total_rows_to_select]
 
