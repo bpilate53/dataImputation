@@ -91,7 +91,7 @@ def adaBoostRegressorMethod(full_data):
     regr = AdaBoostRegressor(random_state=0, n_estimators=100)
     
     start_time = datetime.now()
-    regr_imputed = IterativeImputer(estimator=regr, random_state=0).fit_transform(dataset)
+    regr_imputed_data = IterativeImputer(estimator=regr, random_state=0).fit_transform(dataset)
     end_time = datetime.now()
     
     print("AdaBoost Algorithm Time: " , end_time-start_time) 
